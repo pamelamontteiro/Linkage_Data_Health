@@ -32,7 +32,7 @@ linkage-vigilancia-saude/
 ```
 
 
-​O `record linkage`, ou vinculação de registros, é uma técnica essencial na integração de bases de dados, especialmente no campo da saúde pública. Consiste em identificar e combinar registros que se referem ao mesmo indivíduo, mesmo quando dispersos em diferentes sistemas de informação ou quando há duplicidade dentro de uma única base.​
+​O `record linkage`, também conhecido como `resolução de entidade` ou `vinculação de registros`, é uma técnica essencial na integração de bases de dados, especialmente no campo da saúde pública. Consiste em identificar e combinar registros que se referem ao mesmo indivíduo, mesmo quando dispersos em diferentes sistemas de informação ou quando há duplicidade dentro de uma única base.​
 
 Na vigilância em saúde, o record linkage permite a construção de conjuntos de dados mais completos, facilitando análises aprofundadas sobre agravos, doenças e casos específicos. Por exemplo, é possível relacionar dados do Sistema de Informações sobre Nascidos Vivos (SINASC) com os do Sistema de Informação sobre Mortalidade (SIM) para estudar a mortalidade infantil, ou cruzar informações do Sistema de Informação da Vigilância Epidemiológica da Gripe (SIVEP-Gripe) com o Sistema de Informações do Programa Nacional de Imunizações (SI-PNI) para avaliar a eficácia vacinal.​
 
