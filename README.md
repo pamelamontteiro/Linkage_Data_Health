@@ -15,17 +15,30 @@ Este repositório apresenta uma abordagem prática para a vinculação de regist
 ```
 
 linkage-vigilancia-saude/
-├── data/
+├── data/                        # Dados brutos
 │   ├── base1.csv
 │   └── base2.csv
-├── scripts/
-│   ├── 01_preprocessamento.R
-│   ├── 02_linkage_deterministico.R
-│   ├── 03_linkage_probabilistico.R
-│   └── 04_analise_resultados.R
-├── resultados/
+│
+├── scripts/                     # Scripts organizados por linguagem
+│   ├── R/
+│   │   ├── 01_preprocessamento.R
+│   │   ├── 02_linkage_deterministico.R
+│   │   ├── 03_linkage_probabilistico.R
+│   │   └── 04_analise_resultados.R
+│   │
+│   └── python/
+│       ├── 01_preprocessamento.py
+│       ├── 02_linkage_deterministico.py
+│       ├── 03_linkage_probabilistico.py
+│       └── 04_analise_resultados.py
+│
+├── resultados/                 # Resultados dos processamentos
+│   ├── linkage_deterministico.csv
+│   ├── linkage_probabilistico.csv
 │   └── relatorio_linkage.pdf
-├── README.md
+│
+├── README.md                   # Documentação do projeto
+├── requirements.txt            # Dependências Python
 └── LICENSE
 
 
