@@ -194,6 +194,8 @@ Algoritmos baseados em distancia:
 *   `A distância de Hamming`
 Este índice compara duas sequências de caracteres de mesmo comprimento e calcula o número de elementos que diferem entre si. Em outras palavras, ela mede o menor número de substituições necessárias para transformar uma sequência de caracteres em outra.
 
+**Tabela 5: Exemplos de correspondências no linkage probabilístico utilizando a distância de Hamming.**
+
 | STRING 1  | STRING 2               | HAMMING |
 | ------  | :-----------------------: | :--------: | 
 | SAÚDE  | SAÚDE | 0|
@@ -202,14 +204,18 @@ Este índice compara duas sequências de caracteres de mesmo comprimento e calcu
 | 27/07/2020  | 27/07/2021 | 1|
 | 12/03/2022  | 12/03/1997 | 4|
 
-*   `A distância de Levenshtein``
+*   `A distância de Levenshtein`
 
 Este índice é uma forma mais ampla da distância de Hamming e permite comparar sequências de caracteres de diferentes tamanhos. Além de substituições, outras “transformações” incluem a inserção ou exclusão de caracteres.
 
+**Tabela 6: Exemplos de correspondências no linkage probabilístico utilizando a distância de Levenshtein.**
 
-
-
-
+| STRING 1  | STRING 2               | INSERÇÃO |SUBSTITUIÇÃO | DELEÇÃO |LEVENSHTEIN|
+| ------  | :-----------------------: | :--------:|:--------:|:--------:|:--------:|
+| DAVID | DAVI | 0 |0 |1 |1|
+| MARIA CLARA | MARIA BEATRIZ | 1 |4 |0 |5|
+| 15/03/20 | 16/03/2020 | 2 |0 |0 |2|
+| 2007/03/20 | 07/12/20| 0 |2 |2 |4|
 
 ### 4. Preparando sua base de dados para fazer o linkage
 
@@ -230,6 +236,8 @@ Esses passos, adaptados de Coeli & Camargo Jr (https://doi.org/10.1590/S1415-790
 ### 4.1 Deduplicando da base de dados
 
 O primeiro passo do processo de linkage é a deduplicação, que consiste em identificar e remover registros duplicados nas bases de dados. Esse processo nem sempre pode ser automatizado, pois duplicatas podem conter informações complementares. Por isso, é fundamental identificar os registros de melhor qualidade e, quando necessário, realizar uma verificação manual para consolidar os dados em um único registro mais completo e preciso.
+
+**Tabela 7: Exemplos de tratamento de deduplicação.**
 
 | NOME PACIENTE  | DATA DE INTERNAÇÃO               | EVOLUÇÃO |
 | ------  | :-----------------------: | :--------: | 
