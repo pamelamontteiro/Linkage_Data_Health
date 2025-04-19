@@ -234,10 +234,10 @@ sivep |>
 
 
 
-library(dplyr)
-library(knitr)
+#library(dplyr)
+#library(knitr)
 # Outro exemplo
-sivep |> 
+#sivep |> 
   # Selecionando no objeto SIVEP-Gripe a nona linha dos registros duplicados 
   # no objeto `iguais` com a função slice()
   # Aqui, usamos a função `slice()` para selecionar as linhas que correspondem
@@ -246,12 +246,12 @@ sivep |>
   # e `pares_iguais$y[9]` refere-se à linha do segundo registro (do par).
   # Ao selecionar essas duas linhas, estamos extraindo do banco de dados `sivep`
   # os dois registros considerados duplicados.
-  slice(pares_iguais$.x[9],pares_iguais$.y[9]) |> 
+  #slice(pares_iguais$.x[9],pares_iguais$.y[9]) |> 
   
   # Visualizando a tabela com a função kable() 
   # O uso de `kable()` formata a visualização das linhas em uma tabela organizada
   # para facilitar a análise dos dados. É útil para gerar uma saída limpa e clara
-  kable()
+ # kable()
 
 # Resultado esperado:
 # Aqui, dependendo do conteúdo de `pares_iguais`, podemos ver algo como:
