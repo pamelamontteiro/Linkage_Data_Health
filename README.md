@@ -16,8 +16,8 @@ Este repositório apresenta uma abordagem prática para a vinculação de regist
 
 linkage-vigilancia-saude/
 ├── data/                        # Dados brutos
-│   ├── base1.csv
-│   └── base2.csv
+│   ├── DO_ROSAS.csv
+│   └── sivep_identificado.csv
 │
 ├── scripts/                     # Scripts organizados por linguagem
 │   ├── R/
@@ -33,13 +33,13 @@ linkage-vigilancia-saude/
 │       └── 04_analise_resultados.py
 │
 ├── resultados/                 # Resultados dos processamentos
-│   ├── linkage_deterministico.csv
-│   ├── linkage_probabilistico.csv
-│   └── relatorio_linkage.pdf
+│   ├── lista_duplicidades.csv   # Relatório de duplicidades em formato CSV
+│   └── relatorio_linkage.pdf    # Relatório gerado do processo de linkage
 │
 ├── README.md                   # Documentação do projeto
 ├── requirements.txt            # Dependências Python
-└── LICENSE
+└── LICENSE                     # Licença do projeto
+
 
 
 ```
@@ -76,7 +76,21 @@ Para melhorar os resultados do linkage, são desenvolvidas rotinas computacionai
 
 2.  **Especificidade**: Relaciona-se à capacidade de discriminar corretamente registros que não devem ser considerados correspondentes (verdadeiros negativos).
 
+ 
+ **⚠️ Exemplos de Erros no Record Linkage com Nomes**
+
+|   | Nome no Registro A            | Nome no Registro B            | Descrição                                                                 |
+|---|:-----------------------------:|:------------------------------:|:-------------------------------------------------------------------------:|
+| 1 | Ana Beatriz Silva            | Ana Beatriz da Silva          | Falso Positivo – nomes parecidos, mas podem ser pessoas diferentes.      |
+| 2 | João Pedro Oliveira          | João Pedro da Cunha           | Falso Positivo – primeiro nome igual, sobrenome diferente.               |
+| 3 | Maria Clara dos Santos       | Maria Clara Santos            | Falso Positivo – ausência da preposição leva a pareamento incorreto.     |
+| 4 | Carlos Eduardo Souza         | Carlos E. Souza               | Falso Negativo – abreviação impede reconhecimento de mesma pessoa.       |
+| 5 | Fernanda Lima               | Fernanda de Lima              | Falso Negativo – preposição ignorada, registros não pareados.            |
+| 6 | Júlio César Almeida          | Julio C. Almeida              | Falso Negativo – acento e abreviação causam erro de pareamento.          |
+
+
 Embora idealmente queiramos que os métodos de linkage tenham 100% de sensibilidade e especificidade, é comum que haja `falsos positivos` (quando registros não correspondem, mas são erroneamente considerados como correspondentes) e `falsos negativos` (quando registros que deveriam ser correspondentes não são identificados como tal).
+
 
 # 2. Recursos preparatórios para fazer um linkage
 
@@ -84,7 +98,7 @@ O método de blocagem, algoritmos fonéticos como o Soundex e técnicas de otimi
 
 
 <div align="center">
-  <img src="IMG/4.png"><br>
+  <img src="IMG/Linkage_Probabilístico(1).png"><br>
 </div>
 
 <BR> 
@@ -156,13 +170,23 @@ Quando há possibilidade de pequenas inconsistências nos dados, o linkage deter
 
 # 3.2 Linkage probabilístico
 
+
 O `linkage probabilístico` é uma técnica de correspondência de registros que leva em conta a `probabilidade` de dois registros pertencerem ao mesmo indivíduo, mesmo que não sejam idênticos. Em vez de exigir correspondência exata (como no linkage determinístico), ele compara os dados com base em `pontuações (scores)` e `pesos atribuídos` às concordâncias e discordâncias entre os campos.
 
 Por exemplo, ao comparar dois registros semelhantes como:
 
-*   **“Fabio Luiz Rosa”** (sem acento e sem preposição)
+*   **“NÍCOLE SILVA”** (sem acento e sem preposição)
 
-*   **“Fábio Luis da Rosa”** (com acento, variação na grafia e preposição)
+*   **“NICOLE DA SILVA”** (com acento, variação na grafia e preposição)
+
+
+<div align="center">
+  <img src="IMG/4.png"><br>
+</div>
+<br>
+
+
+<BR> 
 
 Um linkage determinístico rejeitaria essa correspondência. Já o linkage probabilístico consideraria essas variações e avaliaria a `semelhança geral dos registros`, permitindo uma correspondência mais flexível e realista em situações com `erros de digitação, abreviações ou inconsistências menores`.
 
@@ -275,3 +299,68 @@ if(!require(knitr)) install.packages("knitr");library(knitr)
 if(!require(DT)) install.packages("DT");library(DT)
 
 ```
+
+
+
+
+### 5.0  Impacto da Análise de Cruzamentos de Dados (Linkage Probabilístico) no SUS
+
+
+
+  1. Melhoria da Qualidade dos Dados:
+  Erros de digitação e variações de nomes causam registros duplicados no SUS. O linkage probabilístico identifica registros semelhantes, mesmo com inconsistências, garantindo bases de dados mais limpas e confiáveis.
+
+  2. Prevenção de Duplicidade:
+  Duplicidades causam retrabalho, perda de histórico e riscos no tratamento. O linkage detecta múltiplos registros de um mesmo paciente, prevenindo atendimentos descoordenados.
+
+  3. Melhor Alocação de Recursos:
+  Identificar corretamente pacientes e demandas evita desperdício de medicamentos, leitos e profissionais, otimizando a gestão dos recursos públicos.
+
+  4. Redução de Custos e Otimização:
+  A eliminação de registros duplicados reduz o custo de armazenamento de dados e aumenta a eficiência de campanhas de saúde pública e tratamentos.
+
+  5. Aumento da Precisão em Análises Estatísticas:
+  Dados unificados melhoram o monitoramento de doenças, estudos epidemiológicos e a formulação de políticas públicas baseadas em informações reais.
+
+  6. Fomento à Pesquisa e Diagnóstico:
+  Bases de dados confiáveis apoiam pesquisas científicas e permitem diagnósticos médicos mais precisos, impulsionando o desenvolvimento de novas estratégias de saúde.
+
+Exemplos Gráficos Aplicáveis:
+
+Gráfico de Barras: Frequência de correspondências entre registros (erros mais comuns).
+
+Gráfico de Pizza: Proporção entre registros correspondentes e não correspondentes.
+
+
+#  Relatório da Duplicação - SUS Linkage com R ou com Pandas 
+
+
+
+<div align="center">
+  <img src="IMG/20.png"><br>
+</div>
+<br>
+
+<div align="center">
+  <img src="IMG/21.png"><br>
+</div>
+<br>
+
+
+**Resumo da Tabela de Dados:**
+
+A tabela apresenta dados de 5 indivíduos do sexo masculino, com idades entre 32 e 58 anos. Eles estão agrupados sob o código duplicate_groups = 10196, sugerindo que podem ser registros duplicados ou com nomes semelhantes. As informações incluem o nome completo, data de nascimento, idade e CPF, que é único para cada pessoa. Embora haja semelhanças nos nomes, como o sobrenome "Silva", a variação no CPF indica que são pessoas distintas, mas o sistema pode ter registrado duplicações.
+
+**Análise e Conclusão:**
+
+A tabela apresenta um agrupamento de 5 pessoas, todas do sexo masculino, com idades variando entre 32 e 58 anos. O campo duplicate_groups indica que estas entradas pertencem ao mesmo grupo de possíveis duplicatas, o que sugere que podem ser pessoas com nomes semelhantes ou que possam ter sido registradas mais de uma vez no sistema.
+
+**Detalhes observados:**
+
+  * As idades variam de 32 a 58 anos, indicando um grupo de adultos com idades próximas.
+
+  * Os nomes possuem algumas semelhanças, como a presença de sobrenomes comuns, como "Silva" e "Barbosa".
+
+  * O CPF varia para cada pessoa, o que confirma que são indivíduos diferentes, mas com características similares que podem ter sido registradas de forma duplicada no sistema.
+
+**Conclusão:** O agrupamento duplicate_groups = 10196 pode indicar que essas pessoas possuem registros duplicados ou semelhantes no sistema. O linkage de dados pode ser utilizado para analisar se esses registros representam a mesma pessoa ou se são de indivíduos diferentes com nomes semelhantes.
