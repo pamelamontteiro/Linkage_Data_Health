@@ -181,7 +181,7 @@ Por exemplo, ao comparar dois registros semelhantes como:
 
 
 <div align="center">
-  <img src="IMG/4.png"><br>
+  <img src="IMG/10.png"><br>
 </div>
 <br>
 
