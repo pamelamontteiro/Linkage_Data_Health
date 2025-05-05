@@ -348,11 +348,11 @@ A tabela apresenta um agrupamento de 5 pessoas, todas do sexo masculino, com ida
 # License
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/pamelamontteiro/Linkage_Data_Health/blob/main/LICENSE) para mais detalhes.
 
-<br>
+
 
 # Certificados
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-    <!-- Logo da UFSC e Abrasco -->
-    <a href="https://github.com/pamelamontteiro/r-data-science/blob/main/img/certicado_linkage_UFSC.pdf" target="_blank">
+    <!-- Logo da UFSC e ABRASCO -->
+    <a href="https://github.com/pamelamontteiro/Linkage_Data_Health/blob/main/IMG/certicado_linkage_UFSC.pdf" target="_blank">
         <img src="IMG/6.png" alt="UFSC" height="80">
     </a>
