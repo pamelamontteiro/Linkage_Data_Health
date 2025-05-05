@@ -18,10 +18,9 @@ linkage-vigilancia-saude/
 │
 ├── scripts/                     # Scripts organizados por linguagem (somente R)
 │   ├── R/
-│   │   ├── 01_preprocessamento.R
-│   │   ├── 02_linkage_deterministico.R
-│   │   ├── 03_linkage_probabilistico.R
-│   │   └── 04_analise_resultados.R
+│   │   ├── 01_linkage_deterministico.R
+│   │   ├── 02_linkage_probabilistico.R
+│   │   └── 03_analise_resultados.R
 │
 ├── resultados/                 # Resultados dos processamentos
 │   ├── lista_duplicidades.csv   # Relatório de duplicidades em formato CSV
@@ -347,12 +346,13 @@ A tabela apresenta um agrupamento de 5 pessoas, todas do sexo masculino, com ida
 **Conclusão:** O agrupamento duplicate_groups = 10196 pode indicar que essas pessoas possuem registros duplicados ou semelhantes no sistema. O linkage de dados pode ser utilizado para analisar se esses registros representam a mesma pessoa ou se são de indivíduos diferentes com nomes semelhantes.
 
 # License
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/pamelamontteiro/AdocaoPetsPOO/blob/main/LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/pamelamontteiro/Linkage_Data_Health/blob/main/LICENSE) para mais detalhes.
 
-
-<br><br>
-<!-- Logo da ABRASCO -->
-<div align="center">
-  <img src="IMG/6.png"><br>
-</div>
 <br>
+
+# Certificados
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+    <!-- Logo da UFSC e Abrasco -->
+    <a href="https://github.com/pamelamontteiro/r-data-science/blob/main/img/certicado_linkage_UFSC.pdf" target="_blank">
+        <img src="IMG/6.png" alt="UFSC" height="80">
+    </a>
