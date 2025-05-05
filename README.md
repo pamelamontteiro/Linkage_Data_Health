@@ -196,6 +196,63 @@ Tabela 4: Exemplos de incosistências comuns encontradas na variável  `nome `.
 
 <BR>
 
+
+📊 **Exemplo de código em R com linkage probabilístico R**
+
+
+``` R
+
+install.packages("fastLink")       # Para linkage probabilístico
+install.packages("stringdist")     # Para cálculos de distância textual
+install.packages("dplyr")
+install.packages("kableExtra")     # Para visualização em tabelas
+
+
+library(fastLink)
+library(dplyr)
+library(stringdist)
+library(kableExtra)
+
+# Base de dados A
+df_a <- data.frame(
+  id = 1:5,
+  nome = c("NICOLLE SILVA", "CAMILLA", "DAVID", "SARA", "JOSUÉ")
+)
+
+# Base de dados B com variações
+df_b <- data.frame(
+  id = 101:105,
+  nome = c("NICOLE DA SILVA", "CAMILA", "DAVI", "SARAH", "JOSÉ")
+)
+
+# Cálculo da similaridade com Jaro-Winkler
+comparacao <- expand.grid(a = 1:nrow(df_a), b = 1:nrow(df_b)) %>%
+  mutate(
+    nome_a = df_a$nome[a],
+    nome_b = df_b$nome[b],
+    score_jw = stringdist::stringdist(nome_a, nome_b, method = "jw")
+  ) %>%
+  arrange(score_jw)
+
+# Visualizar as melhores correspondências
+comparacao %>%
+  mutate(similaridade = 1 - score_jw) %>%
+  select(nome_a, nome_b, similaridade) %>%
+  head(10) %>%
+  kable("html", caption = "Top 10 pares com maior similaridade (Jaro-Winkler)") %>%
+  kable_styling(full_width = FALSE)
+
+
+| nome\_a       | nome\_b         | similaridade |
+| ------------- | --------------- | ------------ |
+| CAMILLA       | CAMILA          | 0.96         |
+| DAVID         | DAVI            | 0.93         |
+| SARA          | SARAH           | 0.92         |
+| JOSUÉ         | JOSÉ            | 0.91         |
+| NICOLLE SILVA | NICOLE DA SILVA | 0.88         |
+
+
+```
 Não é apenas em textos ou nomes, as inconsistências também podem ocorrer em dados com valores numéricos (substituição de caracteres em `CPFs`, `RGs` e `CNSs`) ou até mesmo em datas (mudança na ordem entre `mês` e `dia`, digitação incorreta de um ou mais valor da data).
 
 Já em uma comparação probabilística, um índice seria atribuído à essas correspondências, indicando uma alta probabilidade de se referirem à mesma pessoa. Observe a seguir o detalhamento de duas das métricas comumente empregadas em comparações probabilísticas: a `distância de Hamming` e a `distância de Levenshtein`
@@ -256,40 +313,6 @@ O primeiro passo do processo de linkage é a deduplicação, que consiste em ide
 | JOSE DA SILVA  | 21/10/2018 | |
 
 <BR>
-
-#
-
-O `R` oferece diversos pacotes para realizar  `linkage de registros `. Neste curso, foi escolhido o pacote reclin por sua simplicidade e adequação à demonstração dos principais conceitos do processo. Outros pacotes relevantes incluem:
-
-*   `RecordLinkage`: Funções para ligação e deduplicação de dados.
-
-*    `reclin2 `: Versão mais recente do reclin, com diferenças na implementação.
-
-*    `diyar `: Focado em linkage e definições epidemiológicas.
-
-*    `BRL `: Metodologia Beta Record Linkage.
-
-*    `fastLink `: Linkage probabilístico rápido com dados faltantes.
-
-*    `PPRL `: Linkage com preservação de privacidade.
-
-Importante: o termo linkage pode ter diferentes significados em áreas como estatística, genética e teoria dos grafos.
-#
-
-Script a seguir para instalar e carregar os pacotes tidyverse, reclin e outros. 
-
-
-```r
-if(!require(tidyverse)) install.packages("tidyverse");library(tidyverse)
-if(!require(reclin)) install.packages("reclin");library(reclin)
-if(!require(digest)) install.packages("digest");library(digest)
-if(!require(knitr)) install.packages("knitr");library(knitr)
-if(!require(DT)) install.packages("DT");library(DT)
-
-```
-
-
-
 
 # 5.0  Impacto da Análise de Cruzamentos de Dados (Linkage Probabilístico) no SUS
 
