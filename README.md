@@ -6,41 +6,29 @@
 
 
 
-
-Este repositório apresenta uma abordagem prática para a vinculação de registros (record linkage) utilizando a linguagem R, com foco na integração de bases de dados no contexto da vigilância em saúde.
-
+Este repositório apresenta uma abordagem prática para a vinculação de registros (record linkage) utilizando a `linguagem R`, no contexto da integração de bases de dados oficiais de saúde. O curso é uma parceria entre a `Abrasco` e a `UFSC`, e os dados utilizados são fictícios da cidade de ROSAS, com foco na vigilância em saúde.
 
 
 
 ```
-
 linkage-vigilancia-saude/
 ├── data/                        # Dados brutos
 │   ├── DO_ROSAS.csv
 │   └── sivep_identificado.csv
 │
-├── scripts/                     # Scripts organizados por linguagem
+├── scripts/                     # Scripts organizados por linguagem (somente R)
 │   ├── R/
 │   │   ├── 01_preprocessamento.R
 │   │   ├── 02_linkage_deterministico.R
 │   │   ├── 03_linkage_probabilistico.R
 │   │   └── 04_analise_resultados.R
-│   │
-│   └── python/
-│       ├── 01_preprocessamento.py
-│       ├── 02_linkage_deterministico.py
-│       ├── 03_linkage_probabilistico.py
-│       └── 04_analise_resultados.py
 │
 ├── resultados/                 # Resultados dos processamentos
 │   ├── lista_duplicidades.csv   # Relatório de duplicidades em formato CSV
 │   └── relatorio_linkage.pdf    # Relatório gerado do processo de linkage
 │
 ├── README.md                   # Documentação do projeto
-├── requirements.txt            # Dependências Python
 └── LICENSE                     # Licença do projeto
-
-
 
 ```
 
@@ -357,3 +345,14 @@ A tabela apresenta um agrupamento de 5 pessoas, todas do sexo masculino, com ida
   * O CPF varia para cada pessoa, o que confirma que são indivíduos diferentes, mas com características similares que podem ter sido registradas de forma duplicada no sistema.
 
 **Conclusão:** O agrupamento duplicate_groups = 10196 pode indicar que essas pessoas possuem registros duplicados ou semelhantes no sistema. O linkage de dados pode ser utilizado para analisar se esses registros representam a mesma pessoa ou se são de indivíduos diferentes com nomes semelhantes.
+
+# License
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/pamelamontteiro/AdocaoPetsPOO/blob/main/LICENSE) para mais detalhes.
+
+
+<br><br>
+<!-- Logo da ABRASCO -->
+<div align="center">
+  <img src="IMG/6.png"><br>
+</div>
+<br>
