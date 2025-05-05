@@ -181,7 +181,7 @@ Por exemplo, ao comparar dois registros semelhantes como:
 
 
 <div align="center">
-  <img src="IMG/10.png"><br>
+  <img src="IMG/3.png"><br>
 </div>
 <br>
 
@@ -241,7 +241,7 @@ Este índice é uma forma mais ampla da distância de Hamming e permite comparar
 | 15/03/20 | 16/03/2020 | 2 |0 |0 |2|
 | 2007/03/20 | 07/12/20| 0 |2 |2 |4|
 
-### 4. Preparando sua base de dados para fazer o linkage
+# 4. Preparando sua base de dados para fazer o linkage
 
 O processo de relacionamento de bases de dados segue um conjunto de boas práticas para otimizar a acurácia do linkage. Os principais passos são:
 
@@ -257,7 +257,7 @@ O processo de relacionamento de bases de dados segue um conjunto de boas prátic
 
 Esses passos, adaptados de Coeli & Camargo Jr (https://doi.org/10.1590/S1415-790X2002000200006), visam garantir um processo eficiente e preciso no relacionamento de dados.
 
-### 4.1 Deduplicando da base de dados
+# 4.1 Deduplicando da base de dados
 
 O primeiro passo do processo de linkage é a deduplicação, que consiste em identificar e remover registros duplicados nas bases de dados. Esse processo nem sempre pode ser automatizado, pois duplicatas podem conter informações complementares. Por isso, é fundamental identificar os registros de melhor qualidade e, quando necessário, realizar uma verificação manual para consolidar os dados em um único registro mais completo e preciso.
 
@@ -269,6 +269,7 @@ O primeiro passo do processo de linkage é a deduplicação, que consiste em ide
 | JOSE DA SILVA  | 21/10/2018 | |
 
 <BR>
+
 #
 
 O `R` oferece diversos pacotes para realizar  `linkage de registros `. Neste curso, foi escolhido o pacote reclin por sua simplicidade e adequação à demonstração dos principais conceitos do processo. Outros pacotes relevantes incluem:
@@ -303,46 +304,38 @@ if(!require(DT)) install.packages("DT");library(DT)
 
 
 
-### 5.0  Impacto da Análise de Cruzamentos de Dados (Linkage Probabilístico) no SUS
+# 5.0  Impacto da Análise de Cruzamentos de Dados (Linkage Probabilístico) no SUS
 
 
 
-  1. Melhoria da Qualidade dos Dados:
+  1.  `Melhoria da Qualidade dos Dados `:
   Erros de digitação e variações de nomes causam registros duplicados no SUS. O linkage probabilístico identifica registros semelhantes, mesmo com inconsistências, garantindo bases de dados mais limpas e confiáveis.
 
-  2. Prevenção de Duplicidade:
+  2.  `Prevenção de Duplicidade `:
   Duplicidades causam retrabalho, perda de histórico e riscos no tratamento. O linkage detecta múltiplos registros de um mesmo paciente, prevenindo atendimentos descoordenados.
 
-  3. Melhor Alocação de Recursos:
+  3.  `Melhor Alocação de Recursos `:
   Identificar corretamente pacientes e demandas evita desperdício de medicamentos, leitos e profissionais, otimizando a gestão dos recursos públicos.
 
-  4. Redução de Custos e Otimização:
+  4.  `Redução de Custos e Otimização `:
   A eliminação de registros duplicados reduz o custo de armazenamento de dados e aumenta a eficiência de campanhas de saúde pública e tratamentos.
 
-  5. Aumento da Precisão em Análises Estatísticas:
+  5.  `Aumento da Precisão em Análises Estatísticas `:
   Dados unificados melhoram o monitoramento de doenças, estudos epidemiológicos e a formulação de políticas públicas baseadas em informações reais.
 
-  6. Fomento à Pesquisa e Diagnóstico:
+  6.  `Fomento à Pesquisa e Diagnóstico `:
   Bases de dados confiáveis apoiam pesquisas científicas e permitem diagnósticos médicos mais precisos, impulsionando o desenvolvimento de novas estratégias de saúde.
 
-Exemplos Gráficos Aplicáveis:
-
-Gráfico de Barras: Frequência de correspondências entre registros (erros mais comuns).
-
-Gráfico de Pizza: Proporção entre registros correspondentes e não correspondentes.
-
-
-#  Relatório da Duplicação - SUS Linkage com R ou com Pandas 
-
+**Exemplos Aplicáveis:**
 
 
 <div align="center">
-  <img src="IMG/20.png"><br>
+  <img src="IMG/4.png"><br>
 </div>
 <br>
 
 <div align="center">
-  <img src="IMG/21.png"><br>
+  <img src="IMG/5.png"><br>
 </div>
 <br>
 
