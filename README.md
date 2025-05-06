@@ -287,7 +287,7 @@ Este índice é uma forma mais ampla da distância de Hamming e permite comparar
 | 15/03/20 | 16/03/2020 | 2 |0 |0 |2|
 | 2007/03/20 | 07/12/20| 0 |2 |2 |4|
 
-## 4. Preparando sua base de dados para fazer o linkage
+### 1.4 Preparando sua base de dados para fazer o linkage
 
 O processo de relacionamento de bases de dados segue um conjunto de boas práticas para otimizar a acurácia do linkage. Os principais passos são:
 
@@ -303,7 +303,7 @@ O processo de relacionamento de bases de dados segue um conjunto de boas prátic
 
 Esses passos, adaptados de Coeli & Camargo Jr (https://doi.org/10.1590/S1415-790X2002000200006), visam garantir um processo eficiente e preciso no relacionamento de dados.
 
-### 4.1 Deduplicando da base de dados
+#### 1.4.1 Deduplicando da base de dados
 
 O primeiro passo do processo de linkage é a deduplicação, que consiste em identificar e remover registros duplicados nas bases de dados. Esse processo nem sempre pode ser automatizado, pois duplicatas podem conter informações complementares. Por isso, é fundamental identificar os registros de melhor qualidade e, quando necessário, realizar uma verificação manual para consolidar os dados em um único registro mais completo e preciso.
 
