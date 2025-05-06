@@ -6,9 +6,7 @@
 
 
 
-Este repositório apresenta uma abordagem prática para a vinculação de registros (record linkage) utilizando a `linguagem R`, no contexto da integração de bases de dados oficiais de saúde. O curso é uma parceria entre a `Abrasco` e a `UFSC`, e os dados utilizados são fictícios da cidade de ROSAS, com foco na vigilância em saúde.
-
-
+Este repositório apresenta uma análise prática para a vinculação de registros (record linkage) utilizando a `linguagem R`, no contexto da integração de bases de dados oficiais de saúde. O curso é uma parceria entre a `Abrasco` e a `UFSC`, e os dados utilizados são fictícios da cidade de ROSAS, com foco na vigilância em saúde.
 
 ```
 linkage-vigilancia-saude/
@@ -40,7 +38,11 @@ Entretanto, a aplicação do record linkage enfrenta desafios, como inconsistên
 
 A utilização de ferramentas como a linguagem de programação R tem se mostrado eficaz na implementação dessas técnicas, permitindo a automação e a escalabilidade dos processos de vinculação. Assim, o record linkage se estabelece como uma ferramenta fundamental para aprimorar a qualidade dos dados e subsidiar decisões informadas na área da saúde pública.
 
-# 1. Sensibilidade e Especificidade.
+Abaixo são apresentados as explicações teóricas e práticas sobre a análise realizada e os resultados da análise.
+
+## 1. Linkage Data
+
+### 1.1 Sensibilidade e Especificidade.
 
 Ao planejar a realização de um record linkage, é fundamental compreender os vieses e as características das bases de dados envolvidas, pois esses fatores influenciam diretamente na escolha do método de pareamento mais adequado. Não existe um método universalmente superior; a seleção deve considerar a natureza dos dados, os objetivos da análise e as limitações técnicas e computacionais.​
 
@@ -79,7 +81,7 @@ Para melhorar os resultados do linkage, são desenvolvidas rotinas computacionai
 Embora idealmente queiramos que os métodos de linkage tenham 100% de sensibilidade e especificidade, é comum que haja `falsos positivos` (quando registros não correspondem, mas são erroneamente considerados como correspondentes) e `falsos negativos` (quando registros que deveriam ser correspondentes não são identificados como tal).
 
 
-# 2. Recursos preparatórios para fazer um linkage
+### 1.2 Recursos preparatórios para fazer um linkage
 
 O método de blocagem, algoritmos fonéticos como o Soundex e técnicas de otimização de linkage são ferramentas importantes para melhorar a acurácia no relacionamento entre bancos de dados e garantir que registros semelhantes sejam corretamente identificados como correspondentes, mesmo que haja variações na forma como os dados são registrados.
 
@@ -90,14 +92,14 @@ O método de blocagem, algoritmos fonéticos como o Soundex e técnicas de otimi
 
 <BR> 
 
-# 2.1 Blocking 
+#### 1.2.1 Blocking 
 
 A `blocagem` é uma técnica de pré-processamento usada para reduzir o número de comparações necessárias entre registros durante o processo de linkage. Em vez de comparar todos os registros de uma base de dados com todos os registros da outra base (o que pode ser muito ineficiente), a blocagem divide os registros em grupos ou "blocos" com base em características comuns (como uma parte do nome ou um prefixo de data). Dessa forma, os registros dentro de cada bloco são mais semelhantes entre si, e somente os registros dentro do mesmo bloco são comparados.
 
 Por exemplo, se você tem um banco de dados com nomes de pessoas, pode usar a primeira letra do nome para dividir os registros em blocos (A, B, C, etc.). Isso reduz o número de comparações que precisam ser feitas e, consequentemente, aumenta a eficiência do processo de linkage.
 
 
-# 2.2 Algoritmos Fonéticos (como o Soundex)
+#### 1.2.2 Algoritmos Fonéticos (como o Soundex)
 
 
 Os algoritmos fonéticos são usados para comparar palavras que soam de forma semelhante, mas que podem ser escritas de maneiras diferentes. Eles são úteis quando se lida com registros que podem ter erros de digitação ou variações de grafia, como nomes que podem ser escritos de várias formas, mas soam semelhantes.
@@ -107,7 +109,7 @@ Um exemplo famoso de algoritmo fonético é o Soundex. O Soundex transforma pala
 Existem outros algoritmos fonéticos além do Soundex, como o Metaphone e o Double Metaphone, que são mais sofisticados e podem lidar com uma gama maior de variações fonéticas.
 
 
-# 2.2.1 Soundex
+#### 1.2.2.1 Soundex
 
 O soundex é o algoritmo que transforma cada palavra em um código de formato específico, formado por uma letra e três números. A primeira letra será sempre a primeira letra da palavra e os códigos numéricos, por sua vez, representam letras que possuem pronúncias semelhantes.
 
@@ -133,7 +135,7 @@ As regras para conversão de um soundex seguem as seguintes etapas a seguir:
 <BR>
 
 
-# 3. Tipos de linkage
+### 1.3. Tipos de linkage
 
 O pareamento de bases de dados, especialmente na área da saúde, é um processo desafiador, principalmente devido à ausência de um identificador único e confiável. Isso dificulta a identificação direta de registros referentes ao mesmo indivíduo entre diferentes bases de dados, mesmo quando há identificadores disponíveis.
 
@@ -147,7 +149,7 @@ Para lidar com esse desafio, o `R` será uma ferramenta essencial na construçã
 
 O método mais adequado para cada tipo de análise, utilizando algoritmos de linkage mais sofisticados, capazes de lidar com incertezas e melhorar a qualidade das correspondências.
 
-# 3.1 Linkage determinístico
+#### 1.3.1 Linkage determinístico
 
 O linkage determinístico é um método de pareamento baseado na correspondência exata entre registros de dois bancos de dados. Ele pode usar um único campo com identificador único (como `CPF`, `RG` ou `CNS`), ou uma combinação de campos como `nome`, `sobrenome` e `data de nascimento`.
 
@@ -155,7 +157,7 @@ Esse método é altamente eficiente quando os dados são `completos e sem erros`
 
 Quando há possibilidade de pequenas inconsistências nos dados, o linkage determinístico pode falhar. Nesses casos, métodos mais flexíveis como o `linkage probabilístico` são mais adequados.
 
-# 3.2 Linkage probabilístico
+#### 1.3.2 Linkage probabilístico
 
 
 O `linkage probabilístico` é uma técnica de correspondência de registros que leva em conta a `probabilidade` de dois registros pertencerem ao mesmo indivíduo, mesmo que não sejam idênticos. Em vez de exigir correspondência exata (como no linkage determinístico), ele compara os dados com base em `pontuações (scores)` e `pesos atribuídos` às concordâncias e discordâncias entre os campos.
@@ -285,7 +287,7 @@ Este índice é uma forma mais ampla da distância de Hamming e permite comparar
 | 15/03/20 | 16/03/2020 | 2 |0 |0 |2|
 | 2007/03/20 | 07/12/20| 0 |2 |2 |4|
 
-# 4. Preparando sua base de dados para fazer o linkage
+## 4. Preparando sua base de dados para fazer o linkage
 
 O processo de relacionamento de bases de dados segue um conjunto de boas práticas para otimizar a acurácia do linkage. Os principais passos são:
 
@@ -314,7 +316,7 @@ O primeiro passo do processo de linkage é a deduplicação, que consiste em ide
 
 <BR>
 
-# 5.0  Impacto da Análise de Cruzamentos de Dados (Linkage Probabilístico) no SUS
+## 2.  Impacto da Análise de Cruzamentos de Dados (Linkage Probabilístico) no SUS
 
 
 
