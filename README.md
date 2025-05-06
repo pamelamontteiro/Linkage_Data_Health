@@ -1,7 +1,7 @@
 # Linkage_Data_Health
 
 <div align="center">
-  <img src="IMG/2.png"><br>
+  <img src="IMG/Capa.png"><br>
 </div>
 
 
