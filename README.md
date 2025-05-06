@@ -1,4 +1,4 @@
-# Linkage_Data_Health
+# Linkage Data Health
 
 <div align="center">
   <img src="IMG/Capa.png"><br>
@@ -40,7 +40,7 @@ Entretanto, a aplicação do record linkage enfrenta desafios, como inconsistên
 
 A utilização de ferramentas como a linguagem de programação R tem se mostrado eficaz na implementação dessas técnicas, permitindo a automação e a escalabilidade dos processos de vinculação. Assim, o record linkage se estabelece como uma ferramenta fundamental para aprimorar a qualidade dos dados e subsidiar decisões informadas na área da saúde pública.
 
-# 1.1 Sensibilidade e especificidade.
+# 1. Sensibilidade e Especificidade.
 
 Ao planejar a realização de um record linkage, é fundamental compreender os vieses e as características das bases de dados envolvidas, pois esses fatores influenciam diretamente na escolha do método de pareamento mais adequado. Não existe um método universalmente superior; a seleção deve considerar a natureza dos dados, os objetivos da análise e as limitações técnicas e computacionais.​
 
@@ -356,17 +356,11 @@ A tabela apresenta dados de 5 indivíduos do sexo masculino, com idades entre 32
 
 **Análise e Conclusão:**
 
-A tabela apresenta um agrupamento de 5 pessoas, todas do sexo masculino, com idades variando entre 32 e 58 anos. O campo duplicate_groups indica que estas entradas pertencem ao mesmo grupo de possíveis duplicatas, o que sugere que podem ser pessoas com nomes semelhantes ou que possam ter sido registradas mais de uma vez no sistema.
-
-**Detalhes observados:**
-
   * As idades variam de 32 a 58 anos, indicando um grupo de adultos com idades próximas.
 
   * Os nomes possuem algumas semelhanças, como a presença de sobrenomes comuns, como "Silva" e "Barbosa".
 
   * O CPF varia para cada pessoa, o que confirma que são indivíduos diferentes, mas com características similares que podem ter sido registradas de forma duplicada no sistema.
-
-**Conclusão:** O agrupamento duplicate_groups = 10196 pode indicar que essas pessoas possuem registros duplicados ou semelhantes no sistema. O linkage de dados pode ser utilizado para analisar se esses registros representam a mesma pessoa ou se são de indivíduos diferentes com nomes semelhantes.
 
 # License
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/pamelamontteiro/Linkage_Data_Health/blob/main/LICENSE) para mais detalhes.
