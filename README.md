@@ -303,7 +303,7 @@ O processo de relacionamento de bases de dados segue um conjunto de boas prátic
 
 Esses passos, adaptados de Coeli & Camargo Jr (https://doi.org/10.1590/S1415-790X2002000200006), visam garantir um processo eficiente e preciso no relacionamento de dados.
 
-# 4.1 Deduplicando da base de dados
+### 4.1 Deduplicando da base de dados
 
 O primeiro passo do processo de linkage é a deduplicação, que consiste em identificar e remover registros duplicados nas bases de dados. Esse processo nem sempre pode ser automatizado, pois duplicatas podem conter informações complementares. Por isso, é fundamental identificar os registros de melhor qualidade e, quando necessário, realizar uma verificação manual para consolidar os dados em um único registro mais completo e preciso.
 
@@ -356,7 +356,7 @@ O primeiro passo do processo de linkage é a deduplicação, que consiste em ide
 
 A tabela apresenta dados de 5 indivíduos do sexo masculino, com idades entre 32 e 58 anos. Eles estão agrupados sob o código duplicate_groups = 10196, sugerindo que podem ser registros duplicados ou com nomes semelhantes. As informações incluem o nome completo, data de nascimento, idade e CPF, que é único para cada pessoa. Embora haja semelhanças nos nomes, como o sobrenome "Silva", a variação no CPF indica que são pessoas distintas, mas o sistema pode ter registrado duplicações.
 
-**Análise e Conclusão:**
+### 2.1 Análise e Conclusão
 
   * As idades variam de 32 a 58 anos, indicando um grupo de adultos com idades próximas.
 
